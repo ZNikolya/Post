@@ -123,4 +123,15 @@ public class PostManager {
 
         return null;
     }
+
+    public void deletePostById(int id) throws SQLException {
+        String sql = "DELETE FROM post WHERE  id = " + id;
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -7,7 +7,7 @@
 <html>
 <head>
     <title>UserPage</title>
-    <link rel="shortcut icon" href="assets/images/favicon.png">
+    <link rel="shortcut icon" href="../assets/images/favicon.png">
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
@@ -16,9 +16,9 @@
     <!-- Bootstrap core CSS-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Plugins and Icon Fonts-->
-    <link href="assets/css/plugins.min.css" rel="stylesheet">
+    <link href="../assets/css/plugins.min.css" rel="stylesheet">
     <!-- Template core CSS-->
-    <link href="assets/css/template.css" rel="stylesheet">
+    <link href="../assets/css/template.css" rel="stylesheet">
 </head>
 <body>
 <% List<Post> posts = (List<Post>) request.getAttribute("posts");%>
@@ -45,7 +45,6 @@ Welcome <%=user.getName()%>
         <div class="row">
 
 
-
             <div class="col-md-12">
 
 
@@ -58,34 +57,38 @@ Welcome <%=user.getName()%>
         </div>
 
 
-
         <div class="owl-carousel menu-carousel" data-carousel-options="{&quot;nav&quot;: false}">
-                    <% for (Post post : posts) {%>
-                    <tr>
-                        <div class="menu-classic-item" style="border: 1px solid black; width:50%; margin:auto; background-color: white;">
-                            <div class="menu-classic-item-img"><a class="photo"></a><img
-                                    src="/image?path=<%=post.getPicUrl()%>" style = "width:30%;"alt="">
-                            </div>
-                            <div class="menu-classic-item-inner">
-                                <h6><%=post.getTitle()%></h6>
-                                <p><%=post.getText()%></p>
-                                <p><%=post.getCategory().getName()%></p>
-                                <p><%=post.getUser().getName()%></p>
-                            </div>
-                        </div>
-                            <%}%>
+            <% for (Post post : posts) {%>
+            <tr>
+                <div class="menu-classic-item"
+                     style="border: 1px solid black; width:50%; margin:auto; background-color: white;">
+                    <div class="menu-classic-item-img"><a class="photo"></a><img
+                            src="/image?path=<%=post.getPicUrl()%>" style="width:30%;" alt="">
+                    </div>
+                    <div class="menu-classic-item-inner">
+                        <h6><%=post.getTitle()%>
+                        </h6>
+                        <p><%=post.getText()%>
+                        </p>
+                        <p><%=post.getCategory().getName()%>
+                        </p>
+                        <p><%=post.getUser().getName()%>
+                        </p>
+                        <p><a href="/removePost?id=<%=post.getId()%>">Delete</a></p>
+                    </div>
                 </div>
-            </div>
+                    <%}%>
+        </div>
+    </div>
 
 </section>
-
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q"></script>
-<script src="assets/js/plugins.min.js"></script>
-<script src="assets/js/custom.min.js"></script>
+<script src="../assets/js/plugins.min.js"></script>
+<script src="../assets/js/custom.min.js"></script>
 </body>
 </html>

@@ -17,10 +17,12 @@ import java.util.List;
 @WebServlet(urlPatterns = "/home")
 public class HomeServlet extends HttpServlet {
 
+    PostManager postManager = new PostManager();
+    CategoryManager categoryManager = new CategoryManager();
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PostManager postManager = new PostManager();
-        CategoryManager categoryManager = new CategoryManager();
+
         try {
             List<Post> allPosts = postManager.getAllPosts();
             List<Category> allCategories = categoryManager.getAllCategories();

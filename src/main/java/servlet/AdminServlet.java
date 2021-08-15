@@ -17,10 +17,11 @@ import java.util.List;
 @WebServlet("/admin")
 public class AdminServlet extends HttpServlet {
 
+    CategoryManager categoryManager = new CategoryManager();
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-            CategoryManager categoryManager = new CategoryManager();
             try {
                 List<Category> allCategories = categoryManager.getAllCategories();
                 req.setAttribute("categories", allCategories);

@@ -11,7 +11,7 @@ import java.io.*;
 @WebServlet(urlPatterns = "/image")
 public class ImageDownloadServlet extends HttpServlet {
 
-    private final String UPLOAD_DIR = "D:\\IdeaProjects\\Shop\\web\\WEB-INF\\upload";
+    private final String UPLOAD_DIR = "D:\\IdeaProjects\\Shop\\Post\\web\\WEB-INF\\upload";
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -11,29 +11,6 @@
     <!------ Include the above in your HEAD tag ---------->
 </head>
 <body>
-<%--Login:--%>
-<%--<form action="/loginServlet" method="post">--%>
-<%--    email: <input type="text" name="email"><br>--%>
-<%--    password: <input type="password" name="password"><br>--%>
-<%--    <input type="submit" value="LOGIN">--%>
-<%--</form>--%>
-<%--<br>--%>
-<%--<br>--%>
-<%--<br>--%>
-<%--Register:--%>
-<%--<form action="/registerServlet" method="post">--%>
-<%--    name: <input type="text" name="name"><br>--%>
-<%--    surname: <input type="text" name="surname"><br>--%>
-<%--    email: <input type="text" name="email"><br>--%>
-<%--    password: <input type="password" name="password"><br>--%>
-<%--    userType:  <select name="type">--%>
-<%--    <option value="USER">USER</option>--%>
-<%--    <option value="MANAGER">MANAGER</option>--%>
-<%--</select><br>--%>
-<%--    <input type="submit" value="REGISTER">--%>
-<%--</form>--%>
-
-
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">

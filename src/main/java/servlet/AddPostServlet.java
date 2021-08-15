@@ -3,6 +3,7 @@ package servlet;
 import manager.PostManager;
 import model.Post;
 import model.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -20,8 +21,8 @@ import java.sql.SQLException;
         maxFileSize = 1024 * 1024 * 5,
         maxRequestSize = 1024 * 1024 * 5 * 5)
 public class AddPostServlet extends HttpServlet {
-
-    private final String UPLOAD_DIR = "D:\\IdeaProjects\\Shop\\web\\WEB-INF\\upload";
+    PostManager postManager = new PostManager();
+    private final String UPLOAD_DIR = "D:\\IdeaProjects\\Shop\\Post//web\\WEB-INF\\upload";
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -47,7 +48,6 @@ public class AddPostServlet extends HttpServlet {
         }
 
 
-        PostManager postManager = new PostManager();
         try {
             postManager.add(post);
             resp.sendRedirect("/admin");
@@ -55,13 +55,14 @@ public class AddPostServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-        private String getFileName (Part part){
-            for (String content : part.getHeader("content-disposition").split(";")) {
-                if (content.trim().startsWith("filename"))
-                    return content.substring(content.indexOf("=") + 2, content.length() - 1);
-            }
-            return null;
+
+    private String getFileName(Part part) {
+        for (String content : part.getHeader("content-disposition").split(";")) {
+            if (content.trim().startsWith("filename"))
+                return content.substring(content.indexOf("=") + 2, content.length() - 1);
         }
+        return null;
     }
+}
 
 

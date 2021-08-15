@@ -2,7 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.Category" %>
 <%@ page import="model.User" %>
-<%@ page import="javafx.geometry.Pos" %>
 <%@ page import="model.UserType" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>

@@ -17,13 +17,15 @@ import java.sql.SQLException;
 @WebServlet(urlPatterns = "/loginServlet")
 public class LoginServlet extends HttpServlet {
 
+    UserManager userManager = new UserManager();
+
+
     @SneakyThrows
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        UserManager userManager = new UserManager();
 
         User user = userManager.getUserByUsernameAndPassword(email, password);
         if (user == null) {
