@@ -57,29 +57,60 @@ Welcome <%=user.getName()%>
         </div>
 
 
-        <div class="owl-carousel menu-carousel" data-carousel-options="{&quot;nav&quot;: false}">
+<%--        <div class="owl-carousel menu-carousel" data-carousel-options="{&quot;nav&quot;: false}">--%>
+<%--            <% for (Post post : posts) {%>--%>
+<%--            <tr>--%>
+<%--                <div class="menu-classic-item"--%>
+<%--                     style="border: 1px solid black; width:50%; margin:auto; background-color: white;">--%>
+<%--                    <div class="menu-classic-item-img"><a class="photo"></a><img--%>
+<%--                            src="/image?path=<%=post.getPicUrl()%>" style="width:30%;" alt="">--%>
+<%--                    </div>--%>
+<%--                    <div class="menu-classic-item-inner">--%>
+<%--                        <h6><%=post.getTitle()%>--%>
+<%--                        </h6>--%>
+<%--                        <p><%=post.getText()%>--%>
+<%--                        </p>--%>
+<%--                        <p><%=post.getCategory().getName()%>--%>
+<%--                        </p>--%>
+<%--                        <p><%=post.getUser().getName()%>--%>
+<%--                        </p>--%>
+<%--                        <p><a href="/removePost?id=<%=post.getId()%>">Delete</a></p>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                    <%}%>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+
+
+        <table border="1" style="background-color: #0b0b0b">
+            <tr>
+                <th>title</th>
+                <th>text</th>
+                <th>category</th>
+                <th>user</th>
+                <th>picture</th>
+                <th>delete</th>
+            </tr>
             <% for (Post post : posts) {%>
             <tr>
-                <div class="menu-classic-item"
-                     style="border: 1px solid black; width:50%; margin:auto; background-color: white;">
-                    <div class="menu-classic-item-img"><a class="photo"></a><img
-                            src="/image?path=<%=post.getPicUrl()%>" style="width:30%;" alt="">
-                    </div>
-                    <div class="menu-classic-item-inner">
-                        <h6><%=post.getTitle()%>
-                        </h6>
-                        <p><%=post.getText()%>
-                        </p>
-                        <p><%=post.getCategory().getName()%>
-                        </p>
-                        <p><%=post.getUser().getName()%>
-                        </p>
-                        <p><a href="/removePost?id=<%=post.getId()%>">Delete</a></p>
-                    </div>
-                </div>
+                <td><%=post.getTitle()%>
+                </td>
+                <td><%=post.getText()%>
+                </td>
+                <td><%=post.getCategory().getName()%>
+                </td>
+                <td><%=post.getUser().getName()%>
+                </td>
+                <td><% if (post.getPicUrl() != null) { %>
+                    <img src="/image?path=<%=post.getPicUrl()%>" width="30"/>
                     <%}%>
-        </div>
-    </div>
+                </td>
+                <td><a href="/removePost?id=<%=post.getId()%>">Delete</a></td>
+                <%
+                    }
+                %>
+            </tr>
+        </table>
 
 </section>
 
